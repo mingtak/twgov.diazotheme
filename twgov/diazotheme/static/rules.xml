@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- notheme setting-->
+    <notheme css:if-content="body.userrole-manager" />
+    <notheme if-path="@@manage-viewlets" />
+    <notheme if="$ajax_load" />
+    <notheme if-path="/@@overview-controlpanel" />
+    <notheme if-path="/@@manage-viewlets" />
+    <notheme if-path="/@@manage-portlets" />
+    <notheme if-path="plone_control_panel" />
+    <notheme if-path="@@plone_ckfinder" />
+    <notheme if-path="@@getgovnotice" />
+
+
+    <!-- 導航 -->
+    <replace css:theme-children="nav#mainmenu" css:content="#portal-globalnav" />
+
+
+    <!-- 全域設定 -->
+    <replace css:theme="html head title" css:content="html head title" />
+    <merge attributes="class" css:theme="body" css:content="body" />
+    <replace css:theme-children="#content" css:content-children="#content" />
+    <before css:theme-children="html head" css:content="head meta" />
+
+
+      <!-- right portlet column -->
+    <replace css:theme-children="#sidebar" css:content-children="#portal-column-two" />
+    <before css:theme-children="#sidebar" css:content-children="div#diazotheme-contentviews" />
+    <before css:theme-children="#sidebar" css:content-children="div#diazotheme-content-actions" />
+
+      <!-- top nav -->
+    <strip css:content="#portal-breadcrumbs span" />
+    <drop css:content-children="#breadcrumbs-you-are-here" />
+    <replace css:theme-children="#breadcrumbs" css:content-children="#portal-breadcrumbs" />
+    <drop css:theme="#breadcrumbs" if-path="/" />
+
+      <!-- header h1  -->
+    <replace css:theme-children="#content-header h1" css:content-children="html title" if-path="/" />
+    <replace css:theme-children="#content-header h1" css:content-children="#form-widgets-noticeName" if-not-path="/" />
+
+      <!-- message box -->
+    <before css:theme-children="#content" css:content=".portalMessage" />
+
+      <!-- drop nonused session -->
+    <drop css:theme="footer div.top" />
+    <drop css:theme="footer div.widgets" />
+    <drop css:content="h1.documentFirstHeading" />
+    <drop css:content="#plone-document-byline" />
+    <drop css:content="div.documentDescription" />
+
+      <!-- portal-footer -->
+    <replace css:theme="footer div.bottom" css:content="#portal-footer" />
+<!--    <before css:theme-children="body" css:content="#portal-footer" /> -->
+
+      <!-- 404 not found -->
+    <strip css:theme="section#content" css:if-content=".template-default_error_message" />
+
+      <!-- search result page -->
+    <before css:theme-children="aside#sidebar" css:content-children="div#googleAdForSearch" />
+
+    <!-- theme setting -->
+    <rules> <!--  if-path="/gov_notice"> -->
+      <theme href="testimonials.html" css:if-content="#visual-portal-wrapper" />
+
+      <drop css:content="#socialtools" />
+    </rules>  
+
+
+
+
+</rules>

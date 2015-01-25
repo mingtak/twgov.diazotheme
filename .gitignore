@@ -1,0 +1,40 @@
+<<<<<<< HEAD
+z3c.recipe.staticlxml
+=======
+>>>>>>> 9579d00511005d165c0bd277b4945cda0a1c6ec1
+*~
+config.py
+*.pyc
+*.pyo
+*.tmp*
+*.mo
+*.egg
+*.EGG
+*.egg-info
+*.EGG-INFO
+*.kpf
+*.swp
+*.wpr
+.*.cfg
+.installed.cfg
+.mr.developer.cfg
+.hg/
+.bzr/
+.svn/
+.project
+.pydevproject
+bin/
+build/
+develop-eggs/
+downloads/
+eggs/
+fake-eggs/
+parts/
+dist/
+var/
+
+
+
+# OSX
+.DS_Store
+resources/

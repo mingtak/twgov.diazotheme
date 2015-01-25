@@ -1,0 +1,7 @@
+Changelog
+=========
+
+1.2dev (unreleased)
+-------------------
+
+- Initial release
